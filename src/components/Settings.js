@@ -14,10 +14,13 @@ const Settings = ({ setPass }) => {
     }, []);
 
     const generatePassword = () => {
-        if (length > 0) {
-            let nanoid = customAlphabet(generateParams(), parseInt(length));
-            setPass(nanoid());
+        if (uppercase || lowercase || numbers || symbols) {
+            if (length > 0) {
+                let nanoid = customAlphabet(generateParams(), parseInt(length));
+                setPass(nanoid());
+            }
         }
+
         return;
     };
     const generateParams = () => {
